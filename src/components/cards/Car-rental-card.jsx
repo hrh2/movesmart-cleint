@@ -32,33 +32,31 @@ const CarItem = ({car}) => {
           {/* <img src={imgUrl} alt="" className="w-100" /> */}
         </div>
         <TrackableView onInView={()=>handleCarViews(car._id)} />
-        <div className="car__item-content mt-4 md:text-xs sm:text-[0.6rem] text-[0.5rem]">
+        <div className="car__item-content mt-4 md:text-xs sm:text-[0.6rem] text-[0.6rem]">
           <h4 className="text-center">{name}</h4>
-          <h6 className="rent__price text-center mt-">
+          <h6 className="rent__price text-center py-3">
             ${specifications.price}.00 <span>/ Day</span>
           </h6>
 
-          <div className="car__item-info d-flex align-items-center justify-content-between mt-3 mb-4">
-            <span className=" d-flex align-items-center gap-1">
+          <div className="car__item-info d-flex align-items-center justify-content-between py-2">
+            <span className=" d-flex align-items-center gap-2 px-2">
               <i className="ri-car-line"></i> {"model-"+specifications.model}
             </span>
-            <span className=" d-flex align-items-center gap-1">
+            <span className=" d-flex align-items-center gap-2 px-2">
               <i className="ri-settings-2-line"></i> {specifications.isAutomatic ? "Automatic" : "Manual"}
             </span>
-            <span className=" d-flex align-items-center gap-1">
+            <span className=" d-flex align-items-center gap-2 px-2">
               <i className="ri-timer-flash-line"></i> {specifications.speed+"mph"}
             </span>
           </div>
-          <Link to={`/cars/single/${_id}`}>
-          <button className=" w-50 car__item-btn car__btn-rent">
+          <Box className="w-full flex text-center justify-center">
+          <Link to={`/cars/single/${_id}`} className=" w-1/2 car__item-btn car__btn-rent  p-2">
             Rent
-          </button>
           </Link>
-          <Link to={`/cars/details/${_id}`}>
-          <button className=" w-50 car__item-btn car__btn-details">
+          <Link to={`/cars/details/${_id}`}  className="w-1/2 car__item-btn car__btn-details p-2">
             Details
-          </button>
           </Link>
+          </Box>
         </div>
         {error&&<Typography variant="h6" className="text-red-500">
           {error}
