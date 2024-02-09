@@ -17,12 +17,14 @@ const RecommendCarCard = (props) => {
     try {
       const token = await localStorage.getItem("token");
       Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-      const response = await Axios.delete(`https://movesmart.onrender.com/api/car/single/${car_id}`);
+      const response = await Axios.delete(`https://ms-client.onrender.com/car-rental/single/${car_id}`);
       setMessage(response.data.message);
+      setTimeout(()=>{setMessage(null)},3000)
       alert(response.data.message);
       window.location = "/cars/mine";
     } catch (error) {
-      setError(error.response?.data?.message || "An error occurred during deletion.");
+      setError(error.response.data.message);
+      setTimeout(()=>{setError(null)},3000)
     }
   };
 
@@ -50,10 +52,10 @@ const RecommendCarCard = (props) => {
               {specifications.fuelkm}km/l
             </p>
             <p>
-              <i className="ri-settings-2-line"></i>
+              <i className="ri-settings-2-line text-green-600">{message?message:null}</i>
             </p>
             <p>
-              <i className="ri-timer-flash-line"></i>
+              <i className="ri-timer-flash-line text-red-600">{error?error:null}</i>
             </p>
           </div>
           <span>${specifications.price}/day</span>

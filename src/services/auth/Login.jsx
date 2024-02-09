@@ -29,7 +29,7 @@ const Login = () => {
           event.preventDefault(); // prevent the default form submission behavior
           try {
                setLoader(true)
-               const response = await Axios.post('http://localhost:3050/login', data);
+               const response = await Axios.post('https://ms-client.onrender.com/login', data);
                const token = response.data.token;
                localStorage.setItem('moveSmart_client_token', token);
                // console.log(token);

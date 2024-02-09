@@ -18,7 +18,7 @@ export default function StationDescription() {
           setLoading(true)
           const token =localStorage.getItem("token");
           Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-          const response = await Axios.get('http://localhost:3050/search/linked');
+          const response = await Axios.get('https://ms-client.onrender.com/search/linked');
           setData(response.data)
           setLoading(false)
         } catch (error) {

@@ -18,7 +18,7 @@ export default function Main() {
         const token = localStorage.getItem("moveSmart_client_token");
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
-        const response = await Axios.get(`http://localhost:3050/car-rental/single/${id}`);
+        const response = await Axios.get(`https://ms-client.onrender.com/car-rental/single/${id}`);
         setData(response.data);
         setImages(response.data.images);
       } catch (error) {

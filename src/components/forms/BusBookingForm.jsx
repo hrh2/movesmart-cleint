@@ -33,7 +33,7 @@ function MyForm() {
         useEffect(() => {
           async function fetchData() {
             try {
-              const response = await Axios.get('http://localhost:3050/search/stations');
+              const response = await Axios.get('https://ms-client.onrender.com/search/stations');
               setRoutes(response.data)
             } catch (error) {
                 setError(error.response.data.message);
@@ -46,7 +46,7 @@ function MyForm() {
           event.preventDefault(); // prevent the default form submission behavior
           try {
                setLoading(true)
-               const response = await Axios.post('http://localhost:3050/search/tickets', data);
+               const response = await Axios.post('https://ms-client.onrender.com/search/tickets', data);
                setAvailableTickets(response.data);
                setTimeout(()=>{
                     setLoading(false)

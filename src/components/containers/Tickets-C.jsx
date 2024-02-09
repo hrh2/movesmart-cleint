@@ -37,7 +37,7 @@ export default function Tickets() {
       try {
         const token =localStorage.getItem("moveSmart_client_token");
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.get('http://localhost:3050/tickets');
+        const response = await Axios.get('https://ms-client.onrender.com/tickets');
         setUsed(response.data.usedTickets)
         setSuspended(response.data.suspendedTickets)
         setUnUsed(response.data.unUsedTickets)

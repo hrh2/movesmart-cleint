@@ -37,7 +37,7 @@ const Signup = () => {
           try {
                setLoader(true)
                data.image=image
-               const response = await Axios.post('http://localhost:3050/signup', data);
+               const response = await Axios.post('https://ms-client.onrender.com/signup', data);
                const token = response.data.token;
                localStorage.setItem('moveSmart_client_token', token);
                Axios.defaults.headers.common.Authorization = `Bearer ${token}`;

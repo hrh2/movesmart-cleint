@@ -28,7 +28,7 @@ export default function BookItem({ details, item,time }) {
     setMessage("");
 
     try {
-      const response = await Axios.post('http://localhost:3050/book', data);
+      const response = await Axios.post('https://ms-client.onrender.com/book', data);
       setMessage(response.data.message);
     } catch (error) {
       setError(error.response.data.message);

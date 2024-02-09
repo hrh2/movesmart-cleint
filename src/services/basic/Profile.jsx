@@ -18,7 +18,7 @@ export default function Profile_discription() {
         // await removeToken('moveSmart_client_token');
         const token =await localStorage.getItem("moveSmart_client_token");
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.get('http://localhost:3050/profile');
+        const response = await Axios.get('https://ms-client.onrender.com/profile');
         navigator.geolocation.getCurrentPosition(getLocation,failedLocation)
         setData(response.data)
       } catch (error) {
