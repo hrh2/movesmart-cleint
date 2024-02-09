@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { Typography } from '@mui/material';
 import Axios from 'axios';
+require('dotenv').config()
 
 
 export default function Profile_discription() {
@@ -9,7 +10,7 @@ export default function Profile_discription() {
   const [location,setLocation] = useState('')
   const [country,setCountry] = useState('')
   const [region,setRegion] = useState('')
-  const weatherkey ="5b732fb231c14d57a82150342240302"
+  const weatherkey =process.env.weatherkey
   // eslint-disable-next-line 
   const [error, setError] = useState('')
   useEffect(() => {
