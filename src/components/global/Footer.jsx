@@ -11,8 +11,8 @@ export default function Footer() {
     <div className='min-w-[100vw] mx-auto bg-slate-950 py-6'>
       <div className='grid md:grid-cols-5 grid-cols-3 justify-center align-items-center'>
         <div className='py-2 text-center md:col-span-1 sm:col-span-1 col-span-3'>
-          <img className=' block mx-auto w-16 aspect-square rounded-full sm:mx-0 sm:shrink-0' src={logo} alt='logo' />
-          <p className='text-indigo-700 text-[.6em]'>
+          <img className=' block mx-auto w-16 aspect-square rounded-full sm:mx-auto sm:shrink-0' src={logo} alt='logo' />
+          <p className='text-indigo-700 text-[.8em]'>
             “Transportation should be a convenient, 
             <br/>
             stress-free experience for everyone.”
@@ -59,8 +59,8 @@ export default function Footer() {
         </div>
       </div>
       <div className='w-11/12 grid grid-flow-col p-1 border-white border-t-4 mx-auto'>
-        <div className=' text-[.6em]'>
-            <p className='flex gap-2 text-[.67em] text-center'>
+        <div className=' text-[1rem]'>
+            <p className='flex gap-2 text-[.7em] text-center'>
               <Link to='/contactUs' className='text-white border-white py-1'>
                 <span className=''>Terms and Privacy Policy</span>
               </Link>
