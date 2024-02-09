@@ -57,13 +57,17 @@ function App() {
       <TicketProvider>
           <CssBaseline />
           <Routes>
-          <Route path="/" exact element={<Home />} />
+          <Route path="/nofound" element={<NoFound/>} />            
+          <Route path="/landing" element={<Landing/>} />
+          <Route path="*" element={<Navigate to="/nofound" />} />
           <Route path="/signup" exact element={<Signup />} />
-          <Route path="/cabs" element={<CabsBookingForm/>} />
           <Route path="/login" exact element={<UserLogin />} />
-          <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/add-payment-visa-card" element={<Payment/>} />
-          <Route path="/cars" exact element={<Cars/>}>
+          <Route path="/" exact element={isLocalUser()?<Home />:redirectToLanding()} />
+          <Route path="/ContactUs" element={isLocalUser()?<ContactUs />:redirectToLanding()} />
+          <Route path="/cabs" element={isLocalUser()?<CabsBookingForm/>:redirectToLanding()} />
+          <Route path="/add-payment-visa-card" element={isLocalUser()?<Payment/>:redirectToLanding()} />
+          <Route path="/userProfile" exact element={isLocalUser()?<Profile />:redirectToLanding()} />
+          <Route path="/cars" exact element={isLocalUser()?<Cars/>:redirectToLanding()}>
                 <Route index element={<AllCars/>} />
                 <Route path="/cars/single/:id" element={<SingleCar />} />
                 <Route path="/cars/add" element={<AddCar />} />
@@ -75,10 +79,6 @@ function App() {
                 <Route path="/cars/details/:id" element={<CarDetails/>} />
                 <Route path="/cars/update/:id" element={<CarUpdate/>} />
           </Route>
-          <Route path="/landing" element={<Landing/>} />
-          <Route path="/nofound" element={<NoFound/>} />            
-          <Route path="/userProfile" exact element={isLocalUser()?<Profile />:redirectToLanding()} />
-          <Route path="*" element={<Navigate to="/nofound" />} />
         </Routes>
       </TicketProvider>
     </ThemeProvider>
